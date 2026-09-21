@@ -190,10 +190,11 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .hud {
@@ -202,27 +203,30 @@ html, body {
   justify-content: space-between;
   width: 100%;
   max-width: 640px;
-  padding: 10px 16px;
+  padding: 8px 16px;
   font-size: 9px;
-  gap: 10px;
+  gap: 6px;
   flex-shrink: 0;
+  z-index: 10;
 }
 
 .hud-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .hud-right {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .hud-hearts {
   display: flex;
-  gap: 4px;
+  gap: 3px;
 }
 
 .hud-heart {
@@ -252,6 +256,17 @@ html, body {
   color: var(--green);
 }
 
+/* Canvas area: takes all remaining vertical space between HUD and d-pad */
+.canvas-area {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  min-height: 0;
+}
+
 .canvas-wrapper {
   position: relative;
   border: 3px solid var(--wall-light);
@@ -260,6 +275,8 @@ html, body {
     inset 0 0 30px rgba(0, 0, 0, 0.5);
   background: var(--bg-dark);
   flex-shrink: 0;
+  /* Scale canvas to fit available space on mobile */
+  transform-origin: center center;
 }
 
 .game-canvas {
@@ -288,21 +305,25 @@ html, body {
 .mobile-controls {
   display: none;
   flex-shrink: 0;
-  padding: 10px 0;
+  padding: 8px 0 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
 }
 
 .dpad {
   display: grid;
-  grid-template-columns: 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px;
+  grid-template-columns: 52px 52px 52px;
+  grid-template-rows: 52px 52px 52px;
   gap: 4px;
 }
 
 .dpad-btn {
-  background: var(--bg-mid);
+  background: rgba(26, 26, 46, 0.9);
   border: 2px solid var(--wall-light);
   color: var(--gray);
-  font-size: 16px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -310,40 +331,79 @@ html, body {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  border-radius: 6px;
+  transition: background 0.08s, color 0.08s;
 }
 
-.dpad-btn:active {
+.dpad-btn:active,
+.dpad-btn.pressed {
   background: var(--wall-light);
   color: var(--white);
+  border-color: var(--purple);
 }
 
 .dpad-up { grid-column: 2; grid-row: 1; }
 .dpad-left { grid-column: 1; grid-row: 2; }
-.dpad-center { grid-column: 2; grid-row: 2; pointer-events: none; opacity: 0.2; }
+.dpad-center { grid-column: 2; grid-row: 2; pointer-events: auto; opacity: 0.9; background: rgba(155, 109, 255, 0.15); border-color: var(--purple); font-size: 22px; }
 .dpad-right { grid-column: 3; grid-row: 2; }
 .dpad-down { grid-column: 2; grid-row: 3; }
 
+/* Mobile breakpoint */
 @media (max-width: 768px) {
+  .game-screen {
+    justify-content: flex-start;
+  }
+
   .mobile-controls {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
+
   .controls-hint {
     display: none;
   }
+
   .title-logo h1 {
     font-size: 18px;
   }
+
+  .hud {
+    padding: 6px 12px;
+    font-size: 8px;
+    gap: 6px;
+  }
+
+  .hud-powerups span {
+    font-size: 14px;
+  }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
   .hud {
     font-size: 7px;
-    padding: 6px 10px;
+    padding: 5px 8px;
+    gap: 4px;
   }
+
+  .hud-left {
+    gap: 6px;
+  }
+
+  .hud-right {
+    gap: 6px;
+  }
+
   .title-logo h1 {
     font-size: 14px;
+  }
+
+  .dpad {
+    grid-template-columns: 46px 46px 46px;
+    grid-template-rows: 46px 46px 46px;
+  }
+
+  .mobile-controls {
+    padding: 6px 0 8px;
   }
 }
 

@@ -9,6 +9,7 @@ export default function GameScreen({ engine, inputManager, onStateChange }) {
   const rafRef = useRef(null);
   const [gameState, setGameState] = useState(engine.getState());
   const wrapperRef = useRef(null);
+  const canvasAreaRef = useRef(null);
 
   // Initialize renderer
   useEffect(() => {
@@ -105,6 +106,32 @@ export default function GameScreen({ engine, inputManager, onStateChange }) {
     }
   }, [gameState.levelIndex]);
 
+  // Auto-scale canvas to fit available area on mobile
+  useEffect(() => {
+    const area = canvasAreaRef.current;
+    const wrapper = wrapperRef.current;
+    if (!area || !wrapper) return;
+
+    const applyScale = () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const areaW = area.clientWidth;
+      const areaH = area.clientHeight;
+      const canvasW = canvas.width + 6; // +6 for border
+      const canvasH = canvas.height + 6;
+      const scaleX = areaW / canvasW;
+      const scaleY = areaH / canvasH;
+      const scale = Math.min(scaleX, scaleY, 1); // never scale up
+      wrapper.style.transform = `scale(${scale})`;
+    };
+
+    const ro = new ResizeObserver(applyScale);
+    ro.observe(area);
+    // Also re-apply when canvas size changes (level change)
+    applyScale();
+    return () => ro.disconnect();
+  }, [gameState.levelIndex]);
+
   const handleDpad = useCallback((dx, dy) => {
     inputManager.pushDirection(dx, dy);
   }, [inputManager]);
@@ -151,15 +178,17 @@ export default function GameScreen({ engine, inputManager, onStateChange }) {
       </div>
 
       {/* Canvas */}
-      <div className="canvas-wrapper" ref={wrapperRef}>
-        <canvas
-          ref={canvasRef}
-          className="game-canvas"
-          width={cols * TILE_SIZE}
-          height={rows * TILE_SIZE}
-          id="game-canvas"
-        />
-        <div className="torch-glow" />
+      <div className="canvas-area" ref={canvasAreaRef}>
+        <div className="canvas-wrapper" ref={wrapperRef}>
+          <canvas
+            ref={canvasRef}
+            className="game-canvas"
+            width={cols * TILE_SIZE}
+            height={rows * TILE_SIZE}
+            id="game-canvas"
+          />
+          <div className="torch-glow" />
+        </div>
       </div>
 
       {/* Mobile D-pad */}
