@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <meta name="description" content="Pixel Dungeon — A retro dungeon crawler game by Giyan Radhietya. Navigate through dangerous dungeons, collect coins, defeat monsters and reach the exit!" />
+    <meta name="keywords" content="pixel dungeon, retro game, dungeon crawler, browser game, pixel art game, game online gratis, Giyan Radhietya" />
     <meta name="author" content="Giyan Radhietya" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0a0a0f" />
+    <link rel="canonical" href="https://pixel-dungeon-wheat.vercel.app/" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -13,24 +16,48 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Open Graph (for social sharing previews) -->
-    <meta property="og:title" content="Pixel Dungeon" />
+    <meta property="og:title" content="Pixel Dungeon — Retro Dungeon Crawler Game" />
     <meta property="og:description" content="A retro dungeon crawler — collect coins, defeat monsters, reach the exit!" />
-    <meta property="og:image" content="/icon.jpg" />
+    <meta property="og:image" content="https://pixel-dungeon-wheat.vercel.app/icon.jpg" />
+    <meta property="og:url" content="https://pixel-dungeon-wheat.vercel.app/" />
+    <meta property="og:site_name" content="Pixel Dungeon" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Pixel Dungeon" />
+    <meta name="twitter:title" content="Pixel Dungeon — Retro Dungeon Crawler Game" />
     <meta name="twitter:description" content="A retro dungeon crawler game by Giyan Radhietya" />
-    <meta name="twitter:image" content="/icon.jpg" />
+    <meta name="twitter:image" content="https://pixel-dungeon-wheat.vercel.app/icon.jpg" />
+
+    <!-- Structured data (helps Google understand this is a game) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Pixel Dungeon",
+        "url": "https://pixel-dungeon-wheat.vercel.app/",
+        "image": "https://pixel-dungeon-wheat.vercel.app/icon.jpg",
+        "description": "A retro dungeon crawler game. Navigate through dangerous dungeons, collect coins, defeat monsters and reach the exit!",
+        "author": { "@type": "Person", "name": "Giyan Radhietya" },
+        "genre": ["Dungeon Crawler", "Retro", "Pixel Art"],
+        "gamePlatform": "Web Browser",
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-    <title>Pixel Dungeon</title>
+    <title>Pixel Dungeon — Retro Dungeon Crawler Game by Giyan Radhietya</title>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>Pixel Dungeon</h1>
+      <p>A retro dungeon crawler game by Giyan Radhietya. Navigate through dangerous dungeons, collect coins, defeat monsters and reach the exit! Please enable JavaScript to play.</p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
