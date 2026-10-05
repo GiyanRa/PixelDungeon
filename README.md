@@ -1,16 +1,56 @@
-# React + Vite
+# 🗡️ Pixel Dungeon
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+**A retro pixel-art dungeon crawler game you can play directly in your browser — free, no download required.**
 
-Currently, two official plugins are available:
+### ▶️ [Play Now → pixel-dungeon-wheat.vercel.app](https://pixel-dungeon-wheat.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Pixel Dungeon](public/icon.jpg)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## About the Game
 
-## Expanding the Oxlint configuration
+**Pixel Dungeon** is a retro-style dungeon crawler made by **Giyan Radhietya**. Explore dangerous dungeons, collect coins, defeat monsters, and find the exit to advance to the next level!
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+*Pixel Dungeon adalah game petualangan dungeon bergaya retro pixel art yang bisa dimainkan langsung di browser secara gratis. Jelajahi dungeon, kumpulkan koin, kalahkan monster, dan temukan pintu keluar!*
+
+## ✨ Features
+
+- 🎮 Classic grid-based dungeon crawling
+- 🪙 Collect coins and chase a high score
+- 👾 Fight monsters along the way
+- 🗺️ Multiple levels with increasing challenge
+- 🔊 Retro sound effects
+- 🌐 Runs in any modern browser — desktop & mobile
+
+## 🕹️ Controls
+
+| Action | Key |
+|---|---|
+| Move | `↑ ↓ ← →` or `W A S D` |
+| Attack | `Space` |
+| Pause | `Esc` or `P` |
+
+## 🛠️ Built With
+
+- [React](https://react.dev)
+- [Vite](https://vite.dev)
+- [Tailwind CSS](https://tailwindcss.com)
+- Hosted on [Vercel](https://vercel.com)
+
+## 🚀 Run Locally
+
+```bash
+git clone https://github.com/GiyanRa/PixelDungeon.git
+cd PixelDungeon
+npm install
+npm run dev
+```
+
+## 👤 Author
+
+**Giyan Radhietya** — [GitHub @GiyanRa](https://github.com/GiyanRa)
+
+---
+
+⭐ If you enjoy the game, give this repo a star and share the link: **https://pixel-dungeon-wheat.vercel.app**
