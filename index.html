@@ -10,7 +10,9 @@
     <meta name="theme-color" content="#0a0a0f" />
     <link rel="canonical" href="https://pixel-dungeon-wheat.vercel.app/" />
 
-    <!-- Favicon -->
+    <!-- Favicon (Google Search prefers square PNGs in multiples of 48px) -->
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/jpeg" href="/icon.jpg" sizes="512x512" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -28,6 +30,17 @@
     <meta name="twitter:title" content="Pixel Dungeon — Retro Dungeon Crawler Game" />
     <meta name="twitter:description" content="A retro dungeon crawler game by Giyan Radhietya" />
     <meta name="twitter:image" content="https://pixel-dungeon-wheat.vercel.app/icon.jpg" />
+
+    <!-- Site name shown in Google Search results (instead of "Vercel") -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Pixel Dungeon",
+        "alternateName": ["Pixel Dungeon by Giyan Radhietya", "Pixel Dungeon Game"],
+        "url": "https://pixel-dungeon-wheat.vercel.app/"
+      }
+    </script>
 
     <!-- Structured data (helps Google understand this is a game) -->
     <script type="application/ld+json">
